@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commander un billet</title>
+</head>
+<body>
+    <h1>Commander le billet</h1>
+
+    <!-- Afficher les détails du billet -->
+    <p>Type de billet : {{ billet.type_billet }}</p>
+    <p>Prix : {{ billet.prix }} FCFA</p>
+    <p>Date du concert : {{ billet.date_concert }}</p>
+    <p>Nombre disponible : {{ billet.nombre_disponible }}</p>
+
+    <!-- Afficher l'image de couverture si disponible -->
+    {% if billet.cover_image %}
+        <img src="{{ billet.cover_image.url }}" alt="Image de couverture" style="max-width: 300px; height: auto;">
+    {% endif %}
+
+    <!-- Formulaire pour confirmer la commande -->
+    <form action="#" method="post">
+        {% csrf_token %}
+        <button type="submit">Confirmer la commande</button>
+    </form>
+</body>
+
+<form method="post">
+    {% csrf_token %}
+    <label for="numero_mobile">Numéro Mobile Money :</label>
+    <input type="text" name="numero_mobile" required>
+    <button type="submit">Payer avec Orange Money</button>
+  </form>
+  
+</html>

@@ -1,0 +1,6 @@
+<h1>Réserver votre billet</h1>
+<form method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}  <!-- Affiche le formulaire de manière simplifiée -->
+  <button type="submit">Réserver</button>
+</form>

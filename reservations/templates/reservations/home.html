@@ -1,0 +1,10 @@
+<h1>Billets disponibles</h1>
+
+<ul>
+  {% for billet in billets %}
+    <li>
+      
+      <a href="{% url 'details' billet.id %}">{{ billet.type_billet }} - {{ billet.prix }}FCFA</a>
+    </li>
+  {% endfor %}
+</ul>

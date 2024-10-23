@@ -1,0 +1,23 @@
+<h1>Détails du billet</h1>
+<p>Type : {{ billet.type_billet }}</p>
+<p>Prix : {{ billet.prix }} FCFA</p>
+<p>Date du concert : {{ billet.date_concert }}</p>
+<p>Nombre disponible : {{ billet.nombre_disponible }}</p>
+
+{% if billet.disponible %}
+  <p>Ce billet est disponible.</p>
+
+  <!-- Afficher l'image de couverture -->
+  {% if billet.cover_image %}
+    <img src="{{ billet.cover_image.url }}" alt="Image de couverture" style="max-width: 300px; height: auto;">
+  {% endif %}
+
+  <!-- Bouton pour commander -->
+  <form action="{% url 'commander' billet.id %}" method="get">
+    <button type="submit">Commander</button>
+</form>
+
+
+{% else %}
+  <p>Ce billet n'est pas disponible pour l'instant.</p>
+{% endif %}
